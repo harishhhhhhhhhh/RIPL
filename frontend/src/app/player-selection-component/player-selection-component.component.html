@@ -1,0 +1,79 @@
+<div>
+  <div class="selector">
+    Choose a skill from the below
+  </div>
+  <div class="selector">
+    <select [(ngModel)]="selectedItem" class="form-select picker" aria-label="Default select example"
+      (change)="onSkillSelection($event)">
+      <option value="player">Select a skill</option>
+      <option value="Batting All-rounder">Batting All-rounder</option>
+      <option value="Bowling All-rounder">Bowling All-rounder</option>
+      <option value="Batter">Batting</option>
+      <option value="Bowller">Bowling</option>
+      <option value="All-rounder">All Rounder</option>
+    </select>
+    &nbsp;
+    <button class="btn btn-primary pickButton" (click)="onPickSelection()">{{ 'Pick a lucky '}}{{ selectedItem
+      }}</button>
+  </div>
+
+
+  <!-- //////////////-----------------------/pop up of wiinner ------------------------------------------------------------->
+  <div class="overlay" *ngIf="pickPlayerFlag">
+    <div class="content-container ">
+      <div class="  winnerBox">
+        <div>The Lucky {{selectedItem}} Is </div>
+        &nbsp;
+        <div class="winnerName"> {{currentItem}}</div>
+      </div>
+      <div>
+      </div>
+      <div class = "winnerbuttons">
+        <button class="btn btn-primary  addPlayerToTheTeamButton" (click)="onAddThePlayerToTheTeam()"
+          [disabled]="addPlayerButtonDisabled">Add the player to
+          the team</button>
+          &nbsp;
+        <button class="btn btn-primary " (click)="onCancelThePlayer()">Cancel the player selection</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="selector">
+    Available {{selectedItem}}s
+  </div>
+
+
+
+  <!--=----------------------------------------------- table ----------------------------------------------------------------------------------------->
+  <div class="selector">
+
+    <table class="table-success table table-dark table-hover table-bordered mt-3 tablesize tablee">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Skill</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Email</th>
+          <th scope="col">Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of playerDetails" class="table-success">
+          <td>{{player.id}}</td>
+          <td>{{player.name}}</td>
+          <td>{{player.skill}}</td>
+          <td>{{player.gender}}</td>
+          <td>{{player.email}}</td>
+          <td>{{player.team}}</td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
