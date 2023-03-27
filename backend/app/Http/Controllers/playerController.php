@@ -26,5 +26,10 @@ class playerController extends Controller
         $players = playerDetails::where('skill', $skill)->get();
         return response()->json($players);
       }
+
+      public function assignTeam(Request $request){
+         $teamName = $request->input('id');
+         return response()->json(["mess"=>"sucessfullly updated"]);
+      }
       
 }

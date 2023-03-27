@@ -13,8 +13,10 @@
       <option value="All-rounder">All Rounder</option>
     </select>
     &nbsp;
+  
     <button class="btn btn-primary pickButton" (click)="onPickSelection()">{{ 'Pick a lucky '}}{{ selectedItem
       }}</button>
+      
   </div>
 
 
@@ -22,9 +24,17 @@
   <div class="overlay" *ngIf="pickPlayerFlag">
     <div class="content-container ">
       <div class="  winnerBox">
+        
         <div>The Lucky {{selectedItem}} Is </div>
         &nbsp;
-        <div class="winnerName"> {{currentItem}}</div>
+        <div *ngIf="displayWinnerFlag" class="winnerName">
+          {{currentWinner}}
+         
+        </div>
+       
+        
+        <div *ngIf = "!displayWinnerFlag" class="roundRobinNames"> {{currentItem}}</div>
+              
       </div>
       <div>
       </div>
@@ -40,7 +50,9 @@
 
 
 
+
   <div class="selector">
+    <div *ngIf="pickSelectionErrorFlag" class="alert alert-warning" role="alert">{{pickSelectionError}}</div>
     Available {{selectedItem}}s
   </div>
 

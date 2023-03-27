@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
@@ -25,5 +25,10 @@ export class ApiServiceService {
     return this.http.get(`${this.api}/getDataBasedOnSkill?skill=${skill}`);
   }
   
+  assignTeamToThePlayer(id :number ,teamName:any ){
 
+   
+
+   return this.http.put(`${this.api}/assignTeam?id=${id}`,teamName);
+  }
 }
