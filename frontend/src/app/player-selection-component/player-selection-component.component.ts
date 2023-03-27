@@ -28,14 +28,15 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
 
 
   currentItem = this.playerDetails[this.currentIndex];
+  // ---------------------------------getting the team Selected or not from team-selection-component-----------------
+  teamSelection:boolean=false;
+  teamSelectedvalue(newTeamvalue:boolean) {
+    this.teamSelection=newTeamvalue;
+  }
 
-
-
-
-
+  
 
   constructor(private service: ApiServiceService, private cdr: ChangeDetectorRef) {
-
   }
 
   ngOnInit(): void {

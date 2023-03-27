@@ -1,6 +1,8 @@
+<app-team-selection-component (haveTeam)="teamSelectedvalue($event)"></app-team-selection-component>
+
 <div>
-  <div class="selector">
-    Choose a skill from the below
+  <div class="selector" >
+    Choose a skill from the below {{teamSelection}}
   </div>
   <div class="selector">
     <select [(ngModel)]="selectedItem" class="form-select picker" aria-label="Default select example"
