@@ -32,6 +32,7 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
   teamSelection:boolean=false;
   teamSelectedvalue(newTeamvalue:boolean) {
     this.teamSelection=newTeamvalue;
+    console.log(this.teamSelection);
   }
 
   

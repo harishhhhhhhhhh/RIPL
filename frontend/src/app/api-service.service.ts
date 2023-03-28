@@ -26,9 +26,8 @@ export class ApiServiceService {
   }
   
   assignTeamToThePlayer(id :number ,teamName:any ){
-
    
 
-   return this.http.put(`${this.api}/assignTeam?id=${id}`,teamName);
+   return this.http.put(`${this.api}/assignTeam?id=${id}`,{teamName :teamName});
   }
 }
