@@ -31,7 +31,10 @@
     <div>
         <h4>Captain : {{captain}}</h4>
     </div>
-    <table class="table-success table table-dark table-striped table-bordered border-white table-hover mt-3 tablesize">
+    <div *ngIf="arePlayersAvailable">
+        <h4>No players assigned in this team</h4>
+    </div>
+    <table *ngIf="!arePlayersAvailable" class="table-success table table-dark table-striped table-bordered border-white table-hover mt-3 tablesize">
         <thead style="color:black">
             {{team}} players
         </thead>
@@ -46,13 +49,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let us of readData 
+            <tr *ngFor="let us of TeamDetails 
      let i= index " class="table-success">
                 <th scope="row">{{us.id}}</th>
                 <th>{{us.name}}</th>
                 <td>{{us.skill}}</td>
                 <td>{{us.gender}}</td>
                 <td>{{us.email}}</td>
+                <!-- <td>{{us.team}}</td> -->
                 <td>{{us.contact}}</td>
             </tr>
         </tbody>

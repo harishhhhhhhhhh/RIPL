@@ -28,4 +28,10 @@ export class ApiServiceService {
   assignTeamToThePlayer(id :number ,teamName:any ): Observable<any> {
     return this.http.put(`${this.api}/assignTeam?id=${id}`,{teamName :teamName});
   }
+
+  getDataBasedOnTeam(teamName: string): Observable<any>{
+    const options = { params: { teamName: teamName } };
+    console.log('cmg')
+    return this.http.get(this.api+`/getDataBasedOnTeam`,options);
+  }
 }
