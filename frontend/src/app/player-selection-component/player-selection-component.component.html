@@ -2,7 +2,7 @@
 
 <div>
   <div class="selector" >
-    Choose a skill from the below {{teamSelection}}
+    Choose a skill from the below {{  teamSelectedFromTeamComponent}}
   </div>
   <div class="selector">
     <select [(ngModel)]="selectedItem" class="form-select picker" aria-label="Default select example"
@@ -16,7 +16,7 @@
     </select>
     &nbsp;
   
-    <button class="btn btn-primary pickButton" (click)="onPickSelection()">{{ 'Pick a lucky '}}{{ selectedItem
+    <button class="btn btn-primary pickButton"  [disabled]="teamSelectedFlag"   (click)="onPickSelection()">{{ 'Pick a lucky '}}{{ selectedItem
       }}</button>
       
   </div>
@@ -53,9 +53,9 @@
 
 
 
-  <div class="selector">
+  <div class="pickerror">
     <div *ngIf="pickSelectionErrorFlag" class="alert alert-warning" role="alert">{{pickSelectionError}}</div>
-    Available {{selectedItem}}s
+    <div>Available {{selectedItem}}s</div>
   </div>
 
 

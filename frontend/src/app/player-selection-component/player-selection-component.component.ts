@@ -19,6 +19,8 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
   addPlayerButtonDisabled: boolean = true;
   displayWinnerFlag: any = false;
   pickSelectionErrorFlag = false;
+  teamSelectedFlag :boolean= true;
+  
   pickSelectionError: any = "* There are no players available to pick";
 
 
@@ -29,10 +31,12 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
 
   currentItem = this.playerDetails[this.currentIndex];
   // ---------------------------------getting the team Selected or not from team-selection-component-----------------
-  teamSelection:boolean=false;
-  teamSelectedvalue(newTeamvalue:boolean) {
-    this.teamSelection=newTeamvalue;
-    console.log(this.teamSelection);
+  teamSelectedFromTeamComponent:string = '';
+  teamSelectedvalue(newTeamvalue:string) {
+    this.teamSelectedFromTeamComponent=newTeamvalue;
+    this.teamSelectedFlag = false;
+    console.log(this.teamSelectedFromTeamComponent);
+    
   }
 
   
@@ -97,7 +101,7 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
   }
 
   assignTeam(){
-    this.service.assignTeamToThePlayer(this.currentPlayerDetails[this.winnerIndex].id,"Sunrisers Hyderabad").subscribe((res)=>{
+    this.service.assignTeamToThePlayer(this.currentPlayerDetails[this.winnerIndex].id,this.teamSelectedFromTeamComponent).subscribe((res)=>{
         console.log(res);
     });
   }

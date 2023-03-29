@@ -25,9 +25,7 @@ export class ApiServiceService {
     return this.http.get(`${this.api}/getDataBasedOnSkill?skill=${skill}`);
   }
   
-  assignTeamToThePlayer(id :number ,teamName:any ){
-   
-
-   return this.http.put(`${this.api}/assignTeam?id=${id}`,{teamName :teamName});
+  assignTeamToThePlayer(id :number ,teamName:any ): Observable<any> {
+    return this.http.put(`${this.api}/assignTeam?id=${id}`,{teamName :teamName});
   }
 }

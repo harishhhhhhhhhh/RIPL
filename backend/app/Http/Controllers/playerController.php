@@ -29,8 +29,11 @@ class playerController extends Controller
 
       public function assignTeam(Request $request){
          $teamName = $request->input('teamName');
-        
-         dd($teamName);
+         $playerId = $request->input('id');
+
+         $player = playerDetails::find($playerId);
+         $player->team = $teamName;
+         $player->save();
          return response()->json(["mess"=>"sucessfullly updated"]);
       }
       

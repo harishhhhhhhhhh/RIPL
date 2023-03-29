@@ -7,7 +7,7 @@ import { ApiServiceService } from '../api-service.service';
   styleUrls: ['./team-selection-component.component.css']
 })
 export class TeamSelectionComponentComponent {
-  @Output() haveTeam = new EventEmitter<boolean>();
+  @Output() haveTeam = new EventEmitter<string>();
   captain: any = "null";
   team: any = "SELECT A TEAM TO PICK A PLAYER";
   TotalTeams: any = ['TEAM-1', 'TEAM-2', 'TEAM-3', 'TEAM-4'];
@@ -17,7 +17,7 @@ export class TeamSelectionComponentComponent {
   randomIndex: any;
   private subscription!: Subscription;
   private timerSubscription!: Subscription;
-  isTeamdetails = false;
+  selectedTeamName :string = '';
   private currentIndex = 0;
   currentTeam = this.TotalTeams[this.currentIndex];
   readData: any = [
@@ -44,7 +44,7 @@ export class TeamSelectionComponentComponent {
   }
   //-----------------------OutPut Emitter-------------------returning the isteamdetails using output emitter
   isTeamSelected() {
-    this.haveTeam.emit(this.isTeamdetails);
+    this.haveTeam.emit(this.selectedTeamName);
   }
 
   ngOnDestroy() {
@@ -55,7 +55,6 @@ export class TeamSelectionComponentComponent {
   // Function called after Select Random Option is Clicked 
   selectRandomOption() {
     if (this.TotalTeams.length >= 1) {
-      this.isTeamdetails = false;
       this.pickTeamflag = true;
       this.randomIndex = Math.floor(Math.random() * this.TotalTeams.length);
       this.team = this.TotalTeams[this.randomIndex];
@@ -80,13 +79,14 @@ export class TeamSelectionComponentComponent {
 
   Cancel() {
     this.pickTeamflag = false;
+    this.selectedTeamName ='';
     this.addPlayerButtonDisabled = true;
     this.cdr.detectChanges();
     this.isTeamSelected();
   }
 
   Continue() {
-    this.isTeamdetails = true;
+    this.selectedTeamName =this.team;
     this.addPlayerButtonDisabled = true;
     this.pickTeamflag = false;
     this.addPlayerButtonDisabled = true;
