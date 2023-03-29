@@ -13,6 +13,13 @@ class playerController extends Controller
         return response()->json($players);
     }
 
+    public function getDataBasedOnTeam(Request $request){
+        $team=$request->input('teamName');
+        // if($team== "TEAM-4") return response()->json("TEAm--4");
+        $players=playerDetails::where('team',$team)->get();
+        return response()->json($players);
+    }
+
     public function getDataBasedOnSkill(Request $request) {
         $skill = $request->input('skill');
 

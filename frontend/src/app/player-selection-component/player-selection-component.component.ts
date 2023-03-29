@@ -35,7 +35,7 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
   teamSelectedvalue(newTeamvalue:string) {
     this.teamSelectedFromTeamComponent=newTeamvalue;
     this.teamSelectedFlag = false;
-    console.log(this.teamSelectedFromTeamComponent);
+    // console.log(this.teamSelectedFromTeamComponent);
     
   }
 
@@ -53,7 +53,7 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
     this.timerSubscription.unsubscribe();
   }
 
-
+  ///retrive the data based on skill selection
   onSkillSelection(event: any) {
     console.log(event.target.value);
     this.selectedSkill = event.target.value;

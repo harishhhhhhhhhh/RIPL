@@ -10,7 +10,7 @@ export class TeamSelectionComponentComponent {
   @Output() haveTeam = new EventEmitter<string>();
   captain: any = "null";
   team: any = "SELECT A TEAM TO PICK A PLAYER";
-  TotalTeams: any = ['TEAM-1', 'TEAM-2', 'TEAM-3', 'TEAM-4'];
+  TotalTeams: any = ['TEAM-1', 'TEAM-2', 'TEAM-3','TEAM-4'];
   SelectedTeams: any = [];
   pickTeamflag = false;
   addPlayerButtonDisabled = true;
@@ -20,6 +20,8 @@ export class TeamSelectionComponentComponent {
   selectedTeamName :string = '';
   private currentIndex = 0;
   currentTeam = this.TotalTeams[this.currentIndex];
+  TeamDetails:any;
+  arePlayersAvailable:any=false;
   readData: any = [
     {
       "id": '1',
@@ -40,7 +42,6 @@ export class TeamSelectionComponentComponent {
   ];
   
   constructor(private service: ApiServiceService, private cdr: ChangeDetectorRef) {
-
   }
   //-----------------------OutPut Emitter-------------------returning the isteamdetails using output emitter
   isTeamSelected() {
@@ -52,7 +53,7 @@ export class TeamSelectionComponentComponent {
     this.timerSubscription.unsubscribe();
 
   }
-  // Function called after Select Random Option is Clicked 
+  //-----------------------Function called after Select Random Option is Clicked 
   selectRandomOption() {
     if (this.TotalTeams.length >= 1) {
       this.pickTeamflag = true;
@@ -71,6 +72,7 @@ export class TeamSelectionComponentComponent {
 
       })
       console.log(this.TotalTeams);
+      
     }
     else {
       alert("No Teams Available");
@@ -94,5 +96,20 @@ export class TeamSelectionComponentComponent {
     this.cdr.detectChanges();
     this.ngOnDestroy();
     this.isTeamSelected();
+    if(this.team){
+      this.onTeamSelection(this.team);
+    }
+  }
+
+  //-------------------Get the details of the players who are in particular team
+  
+  onTeamSelection(teamName:any){
+    this.service.getDataBasedOnTeam(teamName).subscribe((res: any) => {
+      if(res.length==0) this.arePlayersAvailable=true;
+      else this.arePlayersAvailable=false;
+      this.TeamDetails = res;
+      
+      console.log(res);
+    })
   }
 }

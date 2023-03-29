@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/getData',[playerController::class,'index']);
 Route::get('/getDataBasedOnSkill',[playerController::class,'getDataBasedOnSkill']);
 Route::put('/assignTeam',[playerController::class,'assignTeam']);
+Route::get('/getDataBasedOnTeam',[playerController::class,'getDataBasedOnTeam']);
