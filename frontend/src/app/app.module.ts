@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { PlayerSelectionComponentComponent } from './player-selection-component/player-selection-component.component';
 import { TeamSelectionComponentComponent } from './team-selection-component/team-selection-component.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerSelectionComponentComponent,
-    TeamSelectionComponentComponent
+    TeamSelectionComponentComponent,
+    HomeComponentComponent
   ],
   imports: [
     BrowserModule,

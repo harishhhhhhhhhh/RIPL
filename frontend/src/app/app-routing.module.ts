@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { PlayerSelectionComponentComponent } from './player-selection-component/player-selection-component.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:"",component:HomeComponentComponent},
+  {path:"playerselection",component:PlayerSelectionComponentComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
