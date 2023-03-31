@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent {
-
+  seasonNumber = "SEASON 8";
 }

@@ -48,14 +48,10 @@ export class TeamSelectionComponentComponent {
     this.haveTeam.emit(this.selectedTeamName);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.timerSubscription.unsubscribe();
 
-  }
   //-----------------------Function called after Select Random Option is Clicked 
   selectRandomOption() {
-    if (this.TotalTeams.length >= 1) {
+    
       this.pickTeamflag = true;
       this.randomIndex = Math.floor(Math.random() * this.TotalTeams.length);
       this.team = this.TotalTeams[this.randomIndex];
@@ -68,15 +64,12 @@ export class TeamSelectionComponentComponent {
         this.currentTeam = this.team;
         this.addPlayerButtonDisabled = false;
         this.subscription.unsubscribe();
-        this.ngOnDestroy();
+        // this.ngOnDestroy();
 
       })
       console.log(this.TotalTeams);
       
-    }
-    else {
-      alert("No Teams Available");
-    }
+    
   }
 
   Cancel() {
@@ -94,7 +87,7 @@ export class TeamSelectionComponentComponent {
     this.addPlayerButtonDisabled = true;
     this.TotalTeams.splice(this.randomIndex, 1);
     this.cdr.detectChanges();
-    this.ngOnDestroy();
+    // this.ngOnDestroy();
     this.isTeamSelected();
     if(this.team){
       this.onTeamSelection(this.team);
@@ -112,4 +105,14 @@ export class TeamSelectionComponentComponent {
       console.log(res);
     })
   }
+
+    // ngOnDestroy() {
+    //   if (this.subscription) {
+    //     this.subscription.unsubscribe();
+    //   }
+    //   if (this.timerSubscription) {
+    //     this.timerSubscription.unsubscribe();
+    //   }
+
+  
 }

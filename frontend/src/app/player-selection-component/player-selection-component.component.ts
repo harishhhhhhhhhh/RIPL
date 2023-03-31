@@ -1,13 +1,14 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef ,ViewChild} from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 import { interval, Subscription, timer } from 'rxjs'
 import { JsonPipe } from '@angular/common';
+import { TeamSelectionComponentComponent } from '../team-selection-component/team-selection-component.component';
 @Component({
   selector: 'app-player-selection-component',
   templateUrl: './player-selection-component.component.html',
   styleUrls: ['./player-selection-component.component.css']
 })
-export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
+export class PlayerSelectionComponentComponent implements OnInit{
 
   selectedItem: any = 'player';
   playerDetails: any = [];
@@ -48,10 +49,10 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
     this.getDetails();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.timerSubscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  //   this.timerSubscription.unsubscribe();
+  // }
 
   ///retrive the data based on skill selection
   onSkillSelection(event: any) {
@@ -94,29 +95,41 @@ export class PlayerSelectionComponentComponent implements OnInit, OnDestroy {
         this.displayWinnerFlag = true;
         this.addPlayerButtonDisabled = false;
         this.subscription.unsubscribe();
-        this.ngOnDestroy();
+        // this.ngOnDestroy();
 
       })
     }
   }
 
-  assignTeam(){
+   @ViewChild (TeamSelectionComponentComponent) child! : TeamSelectionComponentComponent;
+
+   assignTeam(): void{
     this.service.assignTeamToThePlayer(this.currentPlayerDetails[this.winnerIndex].id,this.teamSelectedFromTeamComponent).subscribe((res)=>{
-        console.log(res);
+      console.log(res);
+      this.getPlayersBasedOnTeam();
+      
     });
   }
+  getPlayersBasedOnTeam(){
+    console.log("details based on team called")
+    this.service.getDataBasedOnTeam(this.teamSelectedFromTeamComponent).subscribe((res)=>{
+      console.log("getting team afetr assigng",res);
+      this.child.TeamDetails  = res;
+      this.cdr.detectChanges();
+    })
+  }
 
-  onAddThePlayerToTheTeam() {
+  async onAddThePlayerToTheTeam() {
   console.log(this.currentPlayerDetails[this.winnerIndex]);
    
-    this.assignTeam();
+    await this.assignTeam();
+    
     this.pickPlayerFlag = false;
     this.addPlayerButtonDisabled = true;
     this.displayWinnerFlag = false;
-
     this.playerDetails.splice(this.winnerIndex, 1);
     this.cdr.detectChanges();
-    this.ngOnDestroy();
+    // this.ngOnDestroy();
 
   }
 

@@ -21,6 +21,7 @@ export class ApiServiceService {
   }
 
 
+
   getDataBasedOnSkill(skill: string): Observable<any> {
     return this.http.get(`${this.api}/getDataBasedOnSkill?skill=${skill}`);
   }
@@ -31,7 +32,6 @@ export class ApiServiceService {
 
   getDataBasedOnTeam(teamName: string): Observable<any>{
     const options = { params: { teamName: teamName } };
-    console.log('cmg')
     return this.http.get(this.api+`/getDataBasedOnTeam`,options);
   }
 }
