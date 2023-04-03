@@ -78,3 +78,38 @@ body{
   font-size: 10px;
   
 }
+
+.container {
+    padding-top: 20px;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+  }
+
+  div.img{
+    grid-row: span 2;
+  }
+  .data{
+    border-top: 1px solid black;
+    text-align: center;
+
+  }
+  .data .name{
+    font-weight: bold;
+  }
+  
+
+.player-holder{
+display: grid;
+grid-template-rows: repeat(3, 1fr);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-color: #4d3b3b;
+    height: 200px;
+    width: 250px;
+  }
+
+
