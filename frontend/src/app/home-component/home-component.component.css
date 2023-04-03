@@ -1,28 +1,33 @@
 body {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url("/assets/img/bg.jpg");
+  background-position: center;
 }
 .mainlogo{
   align-items: center;
   justify-content: center;
   display: flex;
+  
+}
+.mainlogo img{
+  height: 200px;
 }
 
 
 .container {
     padding-top: 20px;
+    padding-bottom: 20px;
     
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 20px;
-    background-color: black;
+    /* background-color: black; */
     
    
   }
   
-  .body{
-    background-color: black;
-  }
+
 
 /* table {
     border-collapse: separate;
@@ -165,5 +170,31 @@ body {
   .team-card p {
     margin-top: 10px;
     font-size: 16px;
+  }
+
+
+
+
+  footer{
+    background-image: url('/assets/img/foooterbg.png');
+    background-color: black;
+
+  }
+
+  .foo{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+  .fotext{
+    color: white;
+    font-size: small;
+  }
+  .foo img{
+      height: 100px;    
   }
   
