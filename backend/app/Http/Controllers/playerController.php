@@ -9,39 +9,75 @@ use App\Models\playerDetails;
 class playerController extends Controller
 {
     public function index(){
-        $players = playerDetails::all();        
+        $ids = DB::table('playerteam')
+            ->pluck('playerid')
+            ->toArray();
+        $players = DB::table('playerdetails')
+            ->select('id','name', 'skill')
+            ->whereNotIn('id', $ids)
+            ->get();
         return response()->json($players);
+
     }
 
     public function getDataBasedOnTeam(Request $request){
+        //$team = $request->input('teamName');
+        // $teamid = DB::table('teamdetails')
+        //     ->where('teamName', $team)
+        //     ->pluck('id')
+        //     ->first();
+        // $playerids = DB::table('playerteam')
+        //      ->where('teamid', $teamid)
+        //      ->pluck('playerid')
+        //      ->toArray();
+        // $players = DB::table('playerdetails')
+        //    ->whereIn('id', $playerids)
+        //    ->select('name', 'skill')
+        //    ->get();
+        // return response()->json($players);
+
         $team=$request->input('teamName');
-        // if($team== "TEAM-4") return response()->json("TEAm--4");
-        $players=playerDetails::where('team',$team)->get();
+        $players =DB::table('playerdetails as pd')
+        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain')
+        ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
+        ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
+        ->where('td.teamName', '=', $team)
+        ->get();
         return response()->json($players);
     }
 
     public function getDataBasedOnSkill(Request $request) {
         $skill = $request->input('skill');
-
         if( $skill == "Batter")
             $skill = "Batting";
         else if($skill == 'Bowller')
             $skill = "Bowling";
         else if($skill == 'player')
-            return response()->json(playerDetails::all());
+            return response()->json(playerDetail::get());
             
-        $players = playerDetails::where('skill', $skill)->get();
+        $players =DB::table('playerdetails as pd')
+        ->select('pd.*')
+        ->where('pd.skill', '=', $skill)
+        ->whereNotIn('pd.id', function($query) {
+            $query->select('playerid')
+                ->from('playerteam');
+        })
+        ->get();
         return response()->json($players);
       }
 
       public function assignTeam(Request $request){
          $teamName = $request->input('teamName');
          $playerId = $request->input('id');
-
-         $player = playerDetails::find($playerId);
-         $player->team = $teamName;
-         $player->save();
-         return response()->json(["mess"=>"sucessfullly updated"]);
+         $teamid=DB::table('teamdetails as td')
+         ->select('td.id')
+         ->where('td.teamName',$teamName)
+         ->get();
+         DB::table('playerteam')->insert([
+            ['playerid' => $playerId,'teamid' => $teamid[0]->id, 'year'=>'2023','random'=>'2']
+        ]);
+        
+         return response()->json(["Mess" =>"succss inserted"]);
       }
       
 }

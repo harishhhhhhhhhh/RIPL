@@ -10,7 +10,9 @@ export class TeamSelectionComponentComponent {
   @Output() haveTeam = new EventEmitter<string>();
   captain: any = "null";
   team: any = "SELECT A TEAM TO PICK A PLAYER";
-  TotalTeams: any = ['TEAM-1', 'TEAM-2', 'TEAM-3','TEAM-4'];
+  /* 'Mighty Mavericks','Spartan Strikers','Uranus Hurricans','Mars Thunders','Mercury Steelers','Neptune Knights',
+'Venus  Warriors','Vesta Avengers',..'Pluto Panthers','Earth Heros','Eris Falcons'*/
+  TotalTeams: any = ['Saturn Superstars'];
   SelectedTeams: any = [];
   pickTeamflag = false;
   addPlayerButtonDisabled = true;
@@ -20,7 +22,7 @@ export class TeamSelectionComponentComponent {
   selectedTeamName :string = '';
   private currentIndex = 0;
   currentTeam = this.TotalTeams[this.currentIndex];
-  TeamDetails:any;
+  TeamDetails:any=[];
   arePlayersAvailable:any=false;
   readData: any = [
     {
@@ -48,6 +50,11 @@ export class TeamSelectionComponentComponent {
     this.haveTeam.emit(this.selectedTeamName);
   }
 
+  //--------paginator
+  
+  searchText:any;
+
+  
 
   //-----------------------Function called after Select Random Option is Clicked 
   selectRandomOption() {
@@ -95,13 +102,15 @@ export class TeamSelectionComponentComponent {
   }
 
   //-------------------Get the details of the players who are in particular team
-  
+  Captain:any;
+  Owners:any;
   onTeamSelection(teamName:any){
     this.service.getDataBasedOnTeam(teamName).subscribe((res: any) => {
       if(res.length==0) this.arePlayersAvailable=true;
       else this.arePlayersAvailable=false;
       this.TeamDetails = res;
-      
+      this.Captain=res[0].teamCaptain
+      this.Owners=res[0].teamOwners
       console.log(res);
     })
   }

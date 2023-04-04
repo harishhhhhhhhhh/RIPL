@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef ,ViewChild} from '@angu
 import { ApiServiceService } from '../api-service.service';
 import { interval, Subscription, timer } from 'rxjs'
 import { JsonPipe } from '@angular/common';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TeamSelectionComponentComponent } from '../team-selection-component/team-selection-component.component';
 @Component({
   selector: 'app-player-selection-component',
@@ -10,10 +13,21 @@ import { TeamSelectionComponentComponent } from '../team-selection-component/tea
 })
 export class PlayerSelectionComponentComponent implements OnInit{
 
-  selectedItem: any = 'player';
+  page: number=1;
+  count: number=0;
+  tableSize:number=5;
+  tableSizes:any=[5,10,15,20];
+  
+  onTableDataChange(event:any){
+    this.page=event;
+    this.onSkillSelection(this.selectedSkill);
+  }
+  
+  newplayer:any;
   playerDetails: any = [];
-  selectedSkill: any;
   currentPlayerDetails: any = [];
+  selectedItem: any = 'player';
+  selectedSkill: any;
   currentWinner: string = '';
   pickPlayerFlag: boolean = false;
   winnerIndex: any;
@@ -21,39 +35,31 @@ export class PlayerSelectionComponentComponent implements OnInit{
   displayWinnerFlag: any = false;
   pickSelectionErrorFlag = false;
   teamSelectedFlag :boolean= true;
-  
   pickSelectionError: any = "* There are no players available to pick";
-
-
   private subscription!: Subscription;
   private timerSubscription!: Subscription;
   private currentIndex = 0;
-
-
-  currentItem = this.playerDetails[this.currentIndex];
-  // ---------------------------------getting the team Selected or not from team-selection-component-----------------
-  teamSelectedFromTeamComponent:string = '';
-  teamSelectedvalue(newTeamvalue:string) {
-    this.teamSelectedFromTeamComponent=newTeamvalue;
-    this.teamSelectedFlag = false;
-    // console.log(this.teamSelectedFromTeamComponent);
-    
-  }
-
   
-
   constructor(private service: ApiServiceService, private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
     this.getDetails();
   }
+  
+  // ---------------------------------getting the team Selected or not from team-selection-component-----------------
+  teamSelectedFromTeamComponent:string = '';
+  teamSelectedvalue(newTeamvalue:string) {
+    this.teamSelectedFromTeamComponent=newTeamvalue;
+    this.teamSelectedFlag = false;
+  }
+  
+  
+  
+  // Accessing the matpaginator module using ViewChild
+  // @ViewChild(MatPaginator) paginator!:MatPaginator
 
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  //   this.timerSubscription.unsubscribe();
-  // }
-
+  // columns=['id','name','skill','gender','email','team'];
   ///retrive the data based on skill selection
   onSkillSelection(event: any) {
     console.log(event.target.value);
@@ -62,20 +68,20 @@ export class PlayerSelectionComponentComponent implements OnInit{
       this.playerDetails = res;
     })
   }
-
+  
   getDetails() {
     return this.service.getAllData().subscribe((res: any) => {
       this.playerDetails = res;
-       
     })
   }
-
-
+  
+  
+  currentItem = this.playerDetails[this.currentIndex];
   onPickSelection() {
-
+    
     
     this.currentPlayerDetails = this.playerDetails;
-
+    
     if (this.currentPlayerDetails <= 0) {
       this.pickSelectionErrorFlag = true;
     }
@@ -84,32 +90,33 @@ export class PlayerSelectionComponentComponent implements OnInit{
       this.winnerIndex = Math.floor(Math.random() * this.currentPlayerDetails.length);
       this.currentWinner = this.currentPlayerDetails[this.winnerIndex].name;
       console.log("lucy winner is", this.currentWinner);
-
+      
 
       this.subscription = interval(100).subscribe(() => {
         this.currentIndex = (this.currentIndex + 1) % this.currentPlayerDetails.length;
         this.currentItem = this.currentPlayerDetails[this.currentIndex].name;
       });
-
+      
       this.timerSubscription = timer(1500).subscribe(() => {
         this.displayWinnerFlag = true;
         this.addPlayerButtonDisabled = false;
         this.subscription.unsubscribe();
         // this.ngOnDestroy();
-
+        
       })
     }
   }
 
-   @ViewChild (TeamSelectionComponentComponent) child! : TeamSelectionComponentComponent;
+  @ViewChild (TeamSelectionComponentComponent) child! : TeamSelectionComponentComponent;
 
-   assignTeam(): void{
+  assignTeam(): void{
     this.service.assignTeamToThePlayer(this.currentPlayerDetails[this.winnerIndex].id,this.teamSelectedFromTeamComponent).subscribe((res)=>{
       console.log(res);
       this.getPlayersBasedOnTeam();
       
     });
   }
+
   getPlayersBasedOnTeam(){
     console.log("details based on team called")
     this.service.getDataBasedOnTeam(this.teamSelectedFromTeamComponent).subscribe((res)=>{
