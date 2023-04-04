@@ -8,21 +8,21 @@ import {HttpClientModule} from '@angular/common/http'
 import { PlayerSelectionComponentComponent } from './player-selection-component/player-selection-component.component';
 import { TeamSelectionComponentComponent } from './team-selection-component/team-selection-component.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
-// import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
 import { TeamDetailsComponentComponent } from './team-details-component/team-details-component.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     PlayerSelectionComponentComponent,
     TeamSelectionComponentComponent,
     HomeComponentComponent,
-    // NavBarComponentComponent,
-    TeamDetailsComponentComponent
+    TeamDetailsComponentComponent,
+    NavBarComponentComponent
   ],
   imports: [
     BrowserModule,
