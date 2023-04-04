@@ -1,7 +1,8 @@
 <app-nav-bar-component></app-nav-bar-component>
+<div class="total-container">
 <app-team-selection-component (haveTeam)="teamSelectedvalue($event)"></app-team-selection-component>
 
-<div>
+<div class="grid-child-element">
   <div class="selector" >
     Choose a skill from the below {{  teamSelectedFromTeamComponent}}
   </div>
@@ -62,33 +63,44 @@
 
 
   <!--=----------------------------------------------- table ----------------------------------------------------------------------------------------->
-  <div class="selector">
+  <div class="selector ">
 
     <table class="table-success table table-dark table-hover table-bordered mt-3 tablesize tablee">
       <thead>
         <tr>
-          <th scope="col">id</th>
+          <!-- <th scope="col">id</th> -->
           <th scope="col">Name</th>
           <th scope="col">Skill</th>
-          <th scope="col">Gender</th>
+          <!-- <th scope="col">Gender</th>
           <th scope="col">Email</th>
-          <th scope="col">Team</th>
+          <th scope="col">Team</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let player of playerDetails" class="table-success">
-          <td>{{player.id}}</td>
+        <tr *ngFor="let player of playerDetails | paginate:{
+          itemsPerPage:tableSize,
+          currentPage:page,
+          totalItems:count
+      } let i= index 
+        " class="table-success">
+          <!-- <td>{{player.id}}</td> -->
           <td>{{player.name}}</td>
           <td>{{player.skill}}</td>
-          <td>{{player.gender}}</td>
+          <!-- <td>{{player.gender}}</td>
           <td>{{player.email}}</td>
-          <td>{{player.team}}</td>
+          <td>{{player.team}}</td> -->
 
         </tr>
 
       </tbody>
     </table>
-
   </div>
+  <div class="selector">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
 
+    </pagination-controls>
+  </div>
 </div>

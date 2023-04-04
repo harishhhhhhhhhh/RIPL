@@ -1,61 +1,68 @@
+<div class="grid-child-element">
 
-<div class="selector">
+    <div class="selector">
+    
+        <div class="content-container ">
+            <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select Random Option</button>
+        </div>
+    
+    </div>
+    <div *ngIf="selectedTeamName">
+        <div>
+            <h4>
+                {{team}} players
+            </h4>
+            <h4>Captain : {{Captain}}</h4>
+            <h4>Owners  : {{Owners}}</h4>
+        </div>
+        <div *ngIf="TeamDetails.length==0">
+            <h4>No players assigned in this team</h4>
+        </div>
+        <div class="tableContainer">
 
-    <div class="content-container ">
-        <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select Random Option</button>
-    </div>
-
-</div>
-<div *ngIf="selectedTeamName" class="teamtable-center ">
-    <div>
-        <h4>Captain : {{captain}}</h4>
-    </div>
-    <div *ngIf="arePlayersAvailable">
-        <h4>No players assigned in this team</h4>
-    </div>
-    <table *ngIf="!arePlayersAvailable" class="table-success table table-dark table-striped table-bordered border-white table-hover mt-3 tablesize">
-        <thead style="color:black">
-            {{team}} players
-        </thead>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Skill</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Email</th>
-                <th scope="col">Contact</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let us of TeamDetails 
-     let i= index " class="table-success">
-                <th scope="row">{{us.id}}</th>
+            <table *ngIf="TeamDetails.length>=1" class="table-success table1 table table-dark table-hover table-bordered mt-3 tablesize tablee">
+                <thead>
+                <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Name</th>
+                    <th scope="col">Skill</th>
+                    <!-- <th scope="col">Gender</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let us of TeamDetails 
+                " class="table-success">
+                <!-- <th scope="row">{{us.id}}</th> -->
                 <th>{{us.name}}</th>
                 <td>{{us.skill}}</td>
-                <td>{{us.gender}}</td>
+                <!-- <td>{{us.gender}}</td>
                 <td>{{us.email}}</td>
-                <!-- <td>{{us.team}}</td> -->
-                <td>{{us.contact}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="overlay" *ngIf="pickTeamflag">
-    <div class="content-container ">
-        <div class="  winnerBox">
-            <div>The Lucky team Is </div>
-            &nbsp;
-            <div class="winnerTeam"> {{currentTeam}}</div>
-        </div>
-        <div>
-        </div>
-        <div class="winnerbuttons">
-            <button class="btn btn-primary  addPlayerToTheTeamButton" (click)="Continue()"
-                [disabled]="addPlayerButtonDisabled">Take this Team
-            </button>
-            &nbsp;
-            <button class="btn btn-primary " (click)="Cancel()">Cancel the this Team</button>
+                    <td>{{us.team}}</td>
+                    <td>{{us.contact}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    </div>
+    <div class="overlay" *ngIf="pickTeamflag">
+        <div class="content-container ">
+            <div class="  winnerBox">
+                <div>The Lucky team Is </div>
+                &nbsp;
+                <div class="winnerTeam"> {{currentTeam}}</div>
+            </div>
+            <div>
+            </div>
+            <div class="winnerbuttons">
+                <button class="btn btn-primary  addPlayerToTheTeamButton" (click)="Continue()"
+                    [disabled]="addPlayerButtonDisabled">Take this Team
+                </button>
+                &nbsp;
+                <button class="btn btn-primary " (click)="Cancel()">Cancel the this Team</button>
+            </div>
         </div>
     </div>
 </div>

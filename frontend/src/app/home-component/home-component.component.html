@@ -1,31 +1,6 @@
 
 
-<body>
-  <app-nav-bar-component></app-nav-bar-component>
-  <div class="mainlogo">
-    <img src="/assets/img/rpl.png" alt="Image 1">
-    <!-- <p style="color: brown;">{{seasonNumber}}</p> -->
-  </div>
-
-<div class="container">
-  <div class="img-holder mighty"><a href="#" target="_main"><img src="/assets/img/mighty.png" alt="Image 1"></a></div>
-  <div class="img-holder spartain"><a href="#" target="_main"><img src="/assets/img/spartain.png" alt="Image 1"></a>
-</div>
-  <div class="img-holder uranus"><a href="#" target="_main"><img src="/assets/img/uranus.png" alt="Image 1"></a></div>
-  <div class="img-holder mars"><a href="#" target="_main"><img src="/assets/img/mars.png" alt="Image 1"></a></div>
-
-  <div class="img-holder mercury"><a href="#" target="_main"><img src="/assets/img/mercury.png" alt="Image 1"></a></div>
-  <div class="img-holder neptune"><a href="#" target="_main"><img src="/assets/img/neptune.png" alt="Image 1"></a></div>
-  <div class="img-holder venus"><a href="#" target="_main"><img src="/assets/img/venus.png" alt="Image 1"></a></div>
-  <div class="img-holder vesta"><a href="#" target="_main"><img src="/assets/img/vesta.png" alt="Image 1"></a></div>
-
-
-  <div class="img-holder saturn"><a href="#" target="_main"><img src="/assets/img/saturn.png" alt="Image 1"></a></div>
-  <div class="img-holder pluto"><a href="#" target="_main"><img src="/assets/img/pluto.png" alt="Image 1"></a></div>
-  <div class="img-holder earth"><a href="#" target="_main"><img src="/assets/img/earth.png" alt="Image 1"></a></div>
-  <div class="img-holder eris"><a href="#" target="_main"><img src="/assets/img/eris.png" alt="Image 1"></a></div>
-
-
-
-</div>
-</body>
+<mat-paginator 
+                [pageSizeOptions]="[1,2,3, 10, 25, 100]"
+                aria-label="Select page">
+      </mat-paginator>

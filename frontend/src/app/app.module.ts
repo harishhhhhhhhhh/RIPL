@@ -9,7 +9,11 @@ import { PlayerSelectionComponentComponent } from './player-selection-component/
 import { TeamSelectionComponentComponent } from './team-selection-component/team-selection-component.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,11 @@ import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    MatTableModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent]
