@@ -1,3 +1,200 @@
-::ng-deep .mat-paginator{
-  background-color: black;
+body {
+  /* background-color: black; */
+  background-image: url("/assets/img/bg.jpg");
+  background-position: center;
 }
+.mainlogo{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
+}
+.mainlogo img{
+  height: 200px;
+}
+
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    /* background-color: black; */
+    
+   
+  }
+  
+
+
+/* table {
+    border-collapse: separate;
+    border-spacing: 20px;
+    width: 100%;
+  }
+  td {
+    border: 1px solid black;
+    height: 100px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  } */
+
+  .img-holder{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    border-color: #e5e5e5;
+    height: 300px;
+    width: 250px;
+  }
+
+  .container img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+   
+  }
+
+  .img-holder:hover {
+    transform: scale(1.1);
+   }
+
+  .mars{
+    background-color: rgba(19,51,89,255)
+    ;
+   }
+
+   .mercury{
+    background-color: rgba(132,162,204,255);
+   }
+   .neptune{
+    background-color: rgba(43,53,65,255);
+   }
+   .venus{
+    background-color:rgba(21,28,47,255);
+   }
+   .vesta{
+    background-color:rgba(20,56,92,255);
+   }
+   .saturn{
+    background-color: rgba(27,83,96,255);
+   }
+   .pluto{
+    background-color: rgba(27,59,80,255);
+   }
+   .earth{
+    background-color:rgba(18,38,75,255);
+   }
+   .eris{
+    background-color: rgba(17,59,99,255);
+   }
+   .mighty{
+    background-color: rgba(47,50,69,255);
+   }
+   .spartain{
+    background-color: rgba(23,14,31,255);
+   }
+   .uranus{
+    background-color: rgba(208,158,97,255);
+   }
+   :host {
+    background-color:black;
+  
+  }
+  
+
+  /* td:hover {
+    transform: scale(1.1);
+  } */ 
+  /* a:hover img {
+    opacity: 0.8;
+    transform: scale(1.05);
+  } */
+
+
+
+  /* card */
+  .team-card {
+    display: inline-block;
+    width: 250px;
+    height: 320px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #f58426;
+  }
+  
+  .team-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #2d3f4f;
+  }
+  
+  .team-card img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+  
+  .team-card h2 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #f58426;
+    margin-left: 50px;
+  }
+  
+  .team-card p {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+
+
+
+  footer{
+    background-image: url('/assets/img/foooterbg.png');
+    background-color: black;
+
+  }
+
+  .foo{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+  .fotext{
+    color: white;
+    font-size: small;
+  }
+  .foo img{
+      height: 100px;    
+  }
+  
