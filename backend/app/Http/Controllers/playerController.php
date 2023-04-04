@@ -10,25 +10,22 @@ use App\Models\playerTeam;
 class playerController extends Controller
 {
     public function index(){
-        $players = playerDetails::all();        
+        $ids = DB::table('playerteam')
+            ->pluck('playerid')
+            ->toArray();
+        $players = DB::table('playerdetails')
+            ->select('name', 'skill','id')
+            ->whereNotIn('id', $ids)
+            ->get();
         return response()->json($players);
     }
 
-    public function check(){
-        $players =DB::table('playerdetails as pd')
-        ->select('pd.name')
-        ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
-        ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
-        ->where('td.teamName', '=', 'Earth Heros')
-        ->get();
-        return response()->json($players);
-    }
 
     public function getDataBasedOnTeam(Request $request){
         $team=$request->input('teamName');
         // if($team== "TEAM-4") return response()->json("TEAm--4");
         $players =DB::table('playerdetails as pd')
-        ->select('pd.name')
+        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain')
         ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
         ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
         ->where('td.teamName', '=', $team)
@@ -51,13 +48,17 @@ class playerController extends Controller
       }
 
       public function assignTeam(Request $request){
-         $teamName = $request->input('teamName');
-         $playerId = $request->input('id');
-
-         $player = playerDetails::find($playerId);
-         $player->team = $teamName;
-         $player->save();
-         return response()->json(["mess"=>"sucessfullly updated"]);
+        $teamName = $request->input('teamName');
+        $playerId = $request->input('id');
+        $teamid=DB::table('teamdetails as td')
+        ->select('td.id')
+        ->where('td.teamName',$teamName)
+        ->get();
+        DB::table('playerteam')->insert([
+           ['playerid' => $playerId,'teamid' => $teamid[0]->id, 'year'=>'2023','random'=>'2']
+       ]);
+       
+        return response()->json(["Mess" =>"succss inserted"]);
       }
       
 }
