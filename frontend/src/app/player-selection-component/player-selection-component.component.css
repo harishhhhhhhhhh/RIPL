@@ -10,8 +10,11 @@
 .selector {
   margin-top: 10px;
   display: flex;
+  /* flex-direction: column; */
+  align-content: center;
   justify-content: center;
 }
+
 
 .tablee {
 
@@ -82,3 +85,22 @@
 /* ..................................................................................winner celebration............................... */
 
 
+/*table display*/
+
+
+.grid-child-element { 
+  
+  width: 100%;
+  height: 90vh;
+  padding: 10px;
+  margin: 10px; 
+  border: 1px solid rgb(7, 7, 7); 
+  box-shadow: 11px 11px 23px 5px rgba(85,85,85,1);
+  min-height: 100%;
+}
+.total-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
