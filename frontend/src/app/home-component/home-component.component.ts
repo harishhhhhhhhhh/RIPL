@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 export class HomeComponentComponent {
 
   seasonNumber = "SEASON 8";
+  team :any;
 
   constructor(private route : Router){}
 
   navigateTeam(teamName : string)
   {
-    this.route.navigate(['',teamName]);
+    this.team = teamName;
+    // this.route.navigate(['',teamName]);
   }
 
 }

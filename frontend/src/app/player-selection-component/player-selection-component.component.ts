@@ -85,6 +85,7 @@ export class PlayerSelectionComponentComponent implements OnInit{
     this.selectedSkill = event.target.value;
     this.service.getDataBasedOnSkill(this.selectedSkill).subscribe((res: any) => {
       this.playerDetails = res;
+      console.log("plalplfp",this.playerDetails)
     })
   }
   

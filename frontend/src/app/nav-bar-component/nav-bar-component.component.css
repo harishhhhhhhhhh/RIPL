@@ -13,7 +13,7 @@ nav{
     /* height:60px;
     width: 100vw;
     min-width: 600px; */
-    background-image: url('/assets/img/curlright.png'),url('/assets/img/curlright.svg');
+    background-image: url('/assets/img/curlright.png'),url('/assets/img/curlright.png');
     /* background-image: url('/assets/img/curlright.svg'); */
     background-repeat: no-repeat,no-repeat;
     background-position: left,right;

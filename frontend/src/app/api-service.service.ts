@@ -36,4 +36,8 @@ export class ApiServiceService {
     const options = { params: { teamName: teamName } };
     return this.http.get(this.api+`/getDataBasedOnTeam`,options);
   }
+
+  getPlayerTeam(): Observable<any>{
+    return this.http.get(this.api+`/checkTeam`);
+  }
 }

@@ -68,6 +68,7 @@ body{
     margin-left: 80px;
     width: 400px;
     height: 100px;
+  
     display: flex;
     flex-wrap: wrap;
     background: #112a5c;
@@ -81,6 +82,8 @@ body{
 
 .container {
     padding-top: 20px;
+    height: auto;
+    min-height: 200px;
     
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -88,9 +91,16 @@ body{
 
   }
 
-  div.img{
+  .container img{
     grid-row: span 2;
-  }
+    height: 150px;
+    width: 248px; 
+    border-radius: 10px;
+    background-position: center;
+    object-fit: contain;
+    
+    
+   }
   .data{
     border-top: 1px solid black;
     text-align: center;
@@ -98,10 +108,12 @@ body{
   }
   .data .name{
     font-weight: bold;
+    color:rgba(3,25,69,255) ;
+    text-transform: uppercase;
   }
   
 
-.player-holder{
+.player-holder {
 display: grid;
 grid-template-rows: repeat(3, 1fr);
     border: 1px solid black;
@@ -109,7 +121,54 @@ grid-template-rows: repeat(3, 1fr);
     box-sizing: border-box;
     border-color: #4d3b3b;
     height: 200px;
+    transition: transform 0.3s ease-in-out;
     width: 250px;
   }
+
+  .skillname{
+    color: rgba(3,25,69,255);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: x-large;
+    font-family: 'Avenir Next', sans-serif;
+    margin-left: 85px;
+    margin-top: 80PX;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* ..................................FOOTER ........................................*/
+  footer{
+    background-image: url('/assets/img/foooterbg.png');
+    background-color: black;
+    margin-top: 80px;
+
+  }
+
+  .foo{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+  .fotext{
+    color: white;
+    font-size: small;
+  }
+  .foo img{
+      height: 100px;    
+  }
+  
 
 

@@ -16,11 +16,34 @@ class playerController extends Controller
             ->select('id','name', 'skill')
             ->whereNotIn('id', $ids)
             ->get();
+        $ids = DB::table('playerteam')
+            ->pluck('playerid')
+            ->toArray();
+        $players = DB::table('playerdetails')
+            ->select('id','name', 'skill')
+            ->whereNotIn('id', $ids)
+            ->get();
         return response()->json($players);
+
 
     }
 
     public function getDataBasedOnTeam(Request $request){
+        //$team = $request->input('teamName');
+        // $teamid = DB::table('teamdetails')
+        //     ->where('teamName', $team)
+        //     ->pluck('id')
+        //     ->first();
+        // $playerids = DB::table('playerteam')
+        //      ->where('teamid', $teamid)
+        //      ->pluck('playerid')
+        //      ->toArray();
+        // $players = DB::table('playerdetails')
+        //    ->whereIn('id', $playerids)
+        //    ->select('name', 'skill')
+        //    ->get();
+        // return response()->json($players);
+
         //$team = $request->input('teamName');
         // $teamid = DB::table('teamdetails')
         //     ->where('teamName', $team)
@@ -43,11 +66,19 @@ class playerController extends Controller
         ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
         ->where('td.teamName', '=', $team)
         ->get();
+        $players =DB::table('playerdetails as pd')
+        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain')
+        ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
+        ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
+        ->where('td.teamName', '=', $team)
+        ->get();
         return response()->json($players);
     }
 
     public function getDataBasedOnSkill(Request $request) {
         $skill = $request->input('skill');
+
+        
         if( $skill == "Batter")
             $skill = "Batting";
         else if($skill == 'Bowller')
@@ -63,7 +94,8 @@ class playerController extends Controller
             $query->select('playerid')
                 ->from('playerteam');
         })
-        ->get();
+        ->get(); 
+    
         return response()->json($players);
       }
 
@@ -87,5 +119,6 @@ class playerController extends Controller
         ->get();
         return response()->json($teams);
       }
+      
       
 }
