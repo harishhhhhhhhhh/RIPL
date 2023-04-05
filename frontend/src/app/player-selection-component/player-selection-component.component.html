@@ -1,4 +1,9 @@
 <app-nav-bar-component></app-nav-bar-component>
+<div class="team">
+  <div *ngFor="let team of teams" class="team-div" [class.blur]="isSelected(team.teamName)">
+    <div >{{team.teamName}}</div>
+  </div>
+</div>
 <div class="total-container">
 <app-team-selection-component (haveTeam)="teamSelectedvalue($event)"></app-team-selection-component>
 
@@ -77,7 +82,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let player of playerDetails | paginate:{
+        <tr *ngFor="let player of playerDetails  | paginate:{
           itemsPerPage:tableSize,
           currentPage:page,
           totalItems:count

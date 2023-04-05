@@ -21,7 +21,9 @@ export class ApiServiceService {
   }
 
 
-
+  getTeams():Observable<any>{
+    return this.http.get(`${this.api}/getTeams`);
+  }
   getDataBasedOnSkill(skill: string): Observable<any> {
     return this.http.get(`${this.api}/getDataBasedOnSkill?skill=${skill}`);
   }

@@ -3,22 +3,38 @@
     <div class="selector">
     
         <div class="content-container ">
-            <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select Random Option</button>
+            <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select A Team</button>
         </div>
     
     </div>
     <div *ngIf="selectedTeamName">
-        <div>
-            <h4>
-                {{team}} players
-            </h4>
-            <h4>Captain : {{Captain}}</h4>
-            <h4>Owners  : {{Owners}}</h4>
+        <div class="team-detail-text">
+            <p>
+                <span>
+                    Team
+                </span>
+                <b>-</b>
+                {{team}}
+            </p>    
+            <p>
+                <span>
+                    Captain 
+                </span>
+                <b>-</b>
+                {{Captain}}
+            </p>
+            <p>
+                <span>
+                    Owners
+                </span>
+                <b>-</b>
+                {{Owners}}
+            </p>
         </div>
-        <div *ngIf="TeamDetails.length==0">
-            <h4>No players assigned in this team</h4>
+        <div *ngIf="TeamDetails.length==0" >
+            <div class="noplayers">No players assigned in this team</div>
         </div>
-        <div class="tableContainer">
+        <div class="tableContainer ">
 
             <table *ngIf="TeamDetails.length>=1" class="table-success table1 table table-dark table-hover table-bordered mt-3 tablesize tablee">
                 <thead>

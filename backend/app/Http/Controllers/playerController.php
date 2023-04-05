@@ -52,12 +52,13 @@ class playerController extends Controller
             $skill = "Batting";
         else if($skill == 'Bowller')
             $skill = "Bowling";
-        else if($skill == 'player')
-            return response()->json(playerDetail::get());
+        else if($skill == 'player'){
+            return $this->index();
+        }
             
         $players =DB::table('playerdetails as pd')
         ->select('pd.*')
-        ->where('pd.skill', '=', $skill)
+        ->where('pd.skill', $skill)
         ->whereNotIn('pd.id', function($query) {
             $query->select('playerid')
                 ->from('playerteam');
@@ -78,6 +79,13 @@ class playerController extends Controller
         ]);
         
          return response()->json(["Mess" =>"succss inserted"]);
+      }
+
+      public function getTeams(){
+        $teams=DB::table('teamdetails')
+        ->select('teamName')
+        ->get();
+        return response()->json($teams);
       }
       
 }
