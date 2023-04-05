@@ -104,3 +104,34 @@
   justify-content: center;
   align-items: center;
 }
+
+.team{
+  margin: 1rem;
+  display: flex;
+  flex-direction: row ;
+  flex-wrap: wrap;
+}
+.team-div{
+  margin:1rem;
+  border: 1px solid rgb(7, 7, 7); 
+  padding:10px;
+  box-shadow: 11px 11px 23px 5px rgb(185, 179, 179);
+  width: 10rem;
+}
+
+.blur {
+  filter: blur(1px);
+}
+.blur::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid rgb(227, 7, 7);
+}
+.team-div:not(.blur):hover {
+  background-color: #ccc;
+}
+
+/* new table style  */

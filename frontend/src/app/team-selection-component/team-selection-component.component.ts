@@ -12,7 +12,8 @@ export class TeamSelectionComponentComponent {
   team: any = "SELECT A TEAM TO PICK A PLAYER";
   /* 'Mighty Mavericks','Spartan Strikers','Uranus Hurricans','Mars Thunders','Mercury Steelers','Neptune Knights',
 'Venus  Warriors','Vesta Avengers',..'Pluto Panthers','Earth Heros','Eris Falcons'*/
-  TotalTeams: any = ['Saturn Superstars'];
+  TotalTeams: any = ['Mighty Mavericks','Spartan Strikers','Uranus Hurricans','Mars Thunders','Mercury Steelers','Neptune Knights',
+  'Venus  Warriors','Vesta Avengers','Saturn Superstars','Pluto Panthers','Earth Heros','Eris Falcons'];
   SelectedTeams: any = [];
   pickTeamflag = false;
   addPlayerButtonDisabled = true;
@@ -49,7 +50,7 @@ export class TeamSelectionComponentComponent {
   isTeamSelected() {
     this.haveTeam.emit(this.selectedTeamName);
   }
-
+  
   //--------paginator
   
   searchText:any;

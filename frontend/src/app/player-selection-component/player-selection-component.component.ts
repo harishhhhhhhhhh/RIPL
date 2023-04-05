@@ -12,22 +12,18 @@ import { TeamSelectionComponentComponent } from '../team-selection-component/tea
   styleUrls: ['./player-selection-component.component.css']
 })
 export class PlayerSelectionComponentComponent implements OnInit{
-
+  teams:any;
   page: number=1;
   count: number=0;
-  tableSize:number=5;
+  tableSize:number=7;
   tableSizes:any=[5,10,15,20];
   
-  onTableDataChange(event:any){
-    this.page=event;
-    this.onSkillSelection(this.selectedSkill);
-  }
   
   newplayer:any;
   playerDetails: any = [];
   currentPlayerDetails: any = [];
   selectedItem: any = 'player';
-  selectedSkill: any;
+  selectedSkill: any='player';
   currentWinner: string = '';
   pickPlayerFlag: boolean = false;
   winnerIndex: any;
@@ -41,16 +37,39 @@ export class PlayerSelectionComponentComponent implements OnInit{
   private currentIndex = 0;
   
   constructor(private service: ApiServiceService, private cdr: ChangeDetectorRef) {
+    this.service.getTeams().subscribe((res:any)=>{
+      this.teams=res;
+    })
+  }
+  onTableDataChange(event:any){
+    console.log(event);
+    this.page=event;
+    this.onSkillSelection({target: { value: this.selectedSkill }});
   }
 
   ngOnInit(): void {
     this.getDetails();
   }
   
+  selectedTeamNames: string[] = [];
+
+  isSelected(teamName: string): boolean {
+    return this.selectedTeamNames.includes(teamName);
+  }
+
+  selectTeam(teamName: string) {
+    const index = this.selectedTeamNames.indexOf(teamName);
+    if (index === -1) {
+      this.selectedTeamNames.push(teamName);
+    } else {
+      this.selectedTeamNames.splice(index, 1);
+    }
+  }
   // ---------------------------------getting the team Selected or not from team-selection-component-----------------
   teamSelectedFromTeamComponent:string = '';
   teamSelectedvalue(newTeamvalue:string) {
     this.teamSelectedFromTeamComponent=newTeamvalue;
+    this.selectTeam(this.teamSelectedFromTeamComponent);
     this.teamSelectedFlag = false;
   }
   

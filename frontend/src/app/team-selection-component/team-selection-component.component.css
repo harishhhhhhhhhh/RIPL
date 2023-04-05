@@ -12,7 +12,8 @@ header {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
+  padding: 10px;
   /* adjust the margin as needed */
 
 }
@@ -74,4 +75,46 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
+}
+
+/* Team-detail-text  */
+.team-detail-text{
+    flex-direction: column;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: #112a5c;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Bebas Neue';
+    justify-content: flex-start;
+}
+
+.team-detail-text p {
+  width: 100%;
+  margin: 0;
+  padding: 11px 15px 8px;
+  display: flex;
+  font-size: 18px;
+  border-bottom: 2px solid #031945;
+  color: #fff;
+}
+
+.team-detail-text p span:first-child {
+  color: #ffc52f;
+}
+
+.team-detail-text p span {
+  text-align: start;
+  color: #fff;
+  display: block;
+  width: 64px;
+}
+.team-detail-text p b {
+  margin-right: 20px;
+}
+
+.noplayers{
+  align-content: center;
+  align-items: center;
 }

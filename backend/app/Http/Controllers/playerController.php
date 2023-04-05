@@ -83,12 +83,16 @@ class playerController extends Controller
             $skill = "Batting";
         else if($skill == 'Bowller')
             $skill = "Bowling";
-        else if($skill == "player")
+        else if($skill == 'player'){
             return $this->index();
-
-        $players = PlayerDetails::where('skill', $skill)
-        ->whereNotIn('id', function($query) {
-            $query->select('playerid')->from('playerteam');
+        }
+            
+        $players =DB::table('playerdetails as pd')
+        ->select('pd.*')
+        ->where('pd.skill', $skill)
+        ->whereNotIn('pd.id', function($query) {
+            $query->select('playerid')
+                ->from('playerteam');
         })
         ->get(); 
     
@@ -115,5 +119,6 @@ class playerController extends Controller
         ->get();
         return response()->json($teams);
       }
+      
       
 }
