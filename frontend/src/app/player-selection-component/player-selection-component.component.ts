@@ -59,18 +59,24 @@ export class PlayerSelectionComponentComponent implements OnInit{
 
   selectTeam(teamName: string) {
     const index = this.selectedTeamNames.indexOf(teamName);
-    if (index === -1) {
+    if ((index === -1) || (this.child.deleteStatus)) {
       this.selectedTeamNames.push(teamName);
     } else {
       this.selectedTeamNames.splice(index, 1);
     }
+    console.log(this.selectedTeamNames + " selected array");
   }
   // ---------------------------------getting the team Selected or not from team-selection-component-----------------
   teamSelectedFromTeamComponent:string = '';
   teamSelectedvalue(newTeamvalue:string) {
     this.teamSelectedFromTeamComponent=newTeamvalue;
     this.selectTeam(this.teamSelectedFromTeamComponent);
+    if(this.child.addStatus || this.child.deleteStatus){
+      this.teamSelectedFlag = true;
+    }
+    else{
     this.teamSelectedFlag = false;
+    }
   }
   
   
