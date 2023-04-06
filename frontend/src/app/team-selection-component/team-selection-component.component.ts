@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { interval, Subscription, timer } from 'rxjs'
 import { ApiServiceService } from '../api-service.service';
 @Component({
@@ -13,8 +13,11 @@ export class TeamSelectionComponentComponent {
   /* 'Mighty Mavericks','Spartan Strikers','Uranus Hurricans','Mars Thunders','Mercury Steelers','Neptune Knights',
 'Venus  Warriors','Vesta Avengers',..'Pluto Panthers','Earth Heros','Eris Falcons'*/
   TotalTeams: any = ['Mighty Mavericks','Spartan Strikers','Uranus Hurricans','Mars Thunders','Mercury Steelers','Neptune Knights',
-  'Venus  Warriors','Vesta Avengers','Saturn Superstars','Pluto Panthers','Earth Heros','Eris Falcons'];
+  'Venus Warriors','Vesta Avengers','Saturn Superstars','Pluto Panthers','Earth Heros','Eris Falcons'];
   SelectedTeams: any = [];
+  addStatus: boolean = false;
+  deleteStatus: boolean = false;
+  displayBanner: boolean = true;
   pickTeamflag = false;
   addPlayerButtonDisabled = true;
   randomIndex: any;
@@ -22,6 +25,7 @@ export class TeamSelectionComponentComponent {
   private timerSubscription!: Subscription;
   selectedTeamName :string = '';
   private currentIndex = 0;
+  adminAccess = false;
   currentTeam = this.TotalTeams[this.currentIndex];
   TeamDetails:any=[];
   arePlayersAvailable:any=false;
@@ -124,5 +128,75 @@ export class TeamSelectionComponentComponent {
     //     this.timerSubscription.unsubscribe();
     //   }
 
+    checkAdminStatus(){
+      this.adminAccess = !(this.adminAccess);
+      console.log(this.switchInput.nativeElement.checked);
+    }
+
+
+    // switch toggling
+    @ViewChild('switchInput', { static: true }) switchInput: any;
+
+    setSwitchOn() {
+      this.switchInput.nativeElement.checked = true;
+    }
   
+    setSwitchOff() {
+      this.switchInput.nativeElement.checked = false;
+    }
+
+    // Add operation
+
+    addPlayerAdmin(team: string){
+    //   this.team = team;
+    //   this.selectedTeamName = team;
+    //   const index = this.TotalTeams.indexOf(team);
+    //   this.TotalTeams.splice(index, 1);
+    //   this.cdr.detectChanges();
+    //   this.isTeamSelected();
+    //   if(team){
+    //   this.onTeamSelection(team);
+    // }
+    const index = this.TotalTeams.indexOf(team);
+    if(index == -1){
+  
+      this.selectedTeamName = team;
+      this.TotalTeams.push(team);
+      this.displayBanner = false;
+      this.addStatus = true;
+      this.deleteStatus = false;
+      this.cdr.detectChanges();
+      this.isTeamSelected();
+    }
+      
+    else{
+      return;
+    }
+
+      this.setSwitchOff();
+      this.adminAccess = false;
+      
+    }
+
+    // delete operation
+
+    deletePlayerAdmin(team: string){
+      // this.setSwitchOff();
+      // this.adminAccess = false;
+      const index = this.TotalTeams.indexOf(team);
+      if(index == -1){
+        return;
+      }
+      else{
+        this.selectedTeamName = team;
+        this.TotalTeams.splice(index,1);
+        this.displayBanner = false;
+      this.deleteStatus = true;
+      this.cdr.detectChanges();
+      this.isTeamSelected();
+      }
+      console.log(this.TotalTeams);
+      
+    }
+
 }
