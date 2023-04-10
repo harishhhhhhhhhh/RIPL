@@ -96,6 +96,7 @@ export class TeamSelectionComponentComponent {
     this.selectedTeamName =this.team;
     this.addPlayerButtonDisabled = true;
     this.pickTeamflag = false;
+    this.displayBanner= true;
     this.addPlayerButtonDisabled = true;
     this.TotalTeams.splice(this.randomIndex, 1);
     this.cdr.detectChanges();

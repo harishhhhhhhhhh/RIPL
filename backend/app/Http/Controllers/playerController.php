@@ -25,7 +25,7 @@ class playerController extends Controller
         $team=$request->input('teamName');
 
         $players =DB::table('playerdetails as pd')
-        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain')
+        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain','pt.playerid','pt.teamid')
         ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
         ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
         ->where('td.teamName', '=', $team)
@@ -78,6 +78,9 @@ class playerController extends Controller
         ->get();
         return response()->json($teams);
       }
+
+
+    //   public function 
       
       
 }

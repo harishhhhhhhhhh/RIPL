@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
+import { AdminControllsComponentComponent } from './admin-controlls-component/admin-controlls-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.
     TeamSelectionComponentComponent,
     HomeComponentComponent,
     TeamDetailsComponentComponent,
-    NavBarComponentComponent
+    NavBarComponentComponent,
+    AdminControllsComponentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,64 @@
+<app-nav-bar-component></app-nav-bar-component>
+<div class="total">
+
+    <div class="options">
+        <div class="heading">Options</div>
+        <div>
+            <button (click)="deleteCalled()" class="btn btn-outline-danger deletebuttonfromoption"> Delete player from a
+                team</button>
+        </div>
+    </div>
+    &nbsp;
+    <div class="content">
+        <div class="selector">
+            <select class="form-select picker" [(ngModel)]="selectedTeam" aria-label="Default select example"
+                (change)="onTeamSelected($event)">
+                <option value="noteam">Select a team</option>
+                <option value="Mighty Mavericks">Mighty Mavericks</option>
+                <option value="Spartan Strikers">Spartan Strikers</option>
+                <option value="Uranus Hurricans">Uranus Hurricans</option>
+                <option value="Mars Thunders">Mars Thunders</option>
+                <option value="Mercury Steelers">Mercury Steelers</option>
+                <option value="Neptune Knights">Neptune Knights</option>
+                <option value="Venus Warriors">Venus Warriors</option>
+                <option value="Vesta Avengers">Vesta Avengers</option>
+                <option value="Saturn Superstars">Saturn Superstars</option>
+                <option value="Pluto Panthers">Pluto Panthers</option>
+                <option value="Earth Heros">Earth Heros</option>
+                <option value="Eris Falcons">Eris Falcons</option>
+            </select>
+
+        </div>
+
+        <div class="tablee ">
+
+            <table class="table-success table table-dark table1 table-hover table-bordered mt-3 tablesize tablee">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">id</th> -->
+                        <th scope="col">Name</th>
+                        <th scope="col">Skill</th>
+                        <th scope="col">Option</th>
+                        <!-- <th scope="col">Gender</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Team</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let player of playerDetails " class="table-success">
+                        <!-- <td>{{player.id}}</td> -->
+                        <td>{{player.name}}</td>
+                        <td>{{player.skill}}</td>
+                        <td><button class="btn btn-outline-danger">Delete Player from {{selectedTeam}}</button></td>
+            
+                        <!-- <td>{{player.gender}}</td>
+                  <td>{{player.email}}</td>
+                  <td>{{player.team}}</td> -->
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
