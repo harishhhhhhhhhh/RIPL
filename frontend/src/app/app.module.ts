@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ApiServiceService } from './api-service.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { PlayerSelectionComponentComponent } from './player-selection-component/player-selection-component.component';
 import { TeamSelectionComponentComponent } from './team-selection-component/team-selection-component.component';
@@ -14,6 +14,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
+import { RegistLoginComponent } from './regist-login/regist-login.component';
+import { LoginComponent } from './regist-login/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.
     TeamSelectionComponentComponent,
     HomeComponentComponent,
     TeamDetailsComponentComponent,
-    NavBarComponentComponent
+    NavBarComponentComponent,
+    RegistLoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [ApiServiceService],

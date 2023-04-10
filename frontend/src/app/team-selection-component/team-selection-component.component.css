@@ -55,6 +55,11 @@ header {
   font-size: xx-large;
 }
 
+.roundRobinNames{
+  text-align: center;
+  color: blue;
+  font-size:x-large;
+}
 /*table card*/
 
 .grid-child-element { 

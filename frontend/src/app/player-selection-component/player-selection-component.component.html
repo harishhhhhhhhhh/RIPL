@@ -5,11 +5,11 @@
   </div>
 </div>
 <div class="total-container">
-<app-team-selection-component (haveTeam)="teamSelectedvalue($event)"></app-team-selection-component>
+<app-team-selection-component (haveTeam)="teamSelectedvalue($event)" (addedteamemit)="removefromarray($event)" (deletedteamemit)="addtoarray($event)"></app-team-selection-component>
 
 <div class="grid-child-element">
   <div class="selector" >
-    Choose a skill from the below {{  teamSelectedFromTeamComponent}}
+    Choose a skill from the below {{  teamSelectedFromTeamComponent}} 
   </div>
   <div class="selector">
     <select [(ngModel)]="selectedItem" class="form-select picker" aria-label="Default select example"
@@ -19,7 +19,7 @@
       <option value="Bowling All-rounder">Bowling All-rounder</option>
       <option value="Batter">Batting</option>
       <option value="Bowller">Bowling</option>
-      <option value="All-rounder">All Rounder</option>
+      <option value="Wicket Keeper">Wicket Keeper</option>
     </select>
     &nbsp;
   
