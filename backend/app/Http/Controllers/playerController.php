@@ -16,29 +16,24 @@ class playerController extends Controller
             ->select('id','name', 'skill')
             ->whereNotIn('id', $ids)
             ->get();
-        $ids = DB::table('playerteam')
-            ->pluck('playerid')
-            ->toArray();
-        $players = DB::table('playerdetails')
-            ->select('id','name', 'skill')
-            ->whereNotIn('id', $ids)
-            ->get();
         return response()->json($players);
 
 
     }
 
     public function getDataBasedOnTeam(Request $request){
-       
+
+
+
         $team=$request->input('teamName');
 
         $players =DB::table('playerdetails as pd')
+
         ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain','pt.playerid','pt.teamid')
         ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
         ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
         ->where('td.teamName', '=', $team)
         ->get();
-      
         return response()->json($players);
     }
 
