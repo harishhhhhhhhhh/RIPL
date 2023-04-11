@@ -36,6 +36,8 @@ export class PlayerSelectionComponentComponent implements OnInit {
   private timerSubscription!: Subscription;
   private currentIndex = 0;
   
+  confettiArray = Array(1000).fill({});
+
   @ViewChild(TeamSelectionComponentComponent) child!: TeamSelectionComponentComponent;
 
   constructor(private service: ApiServiceService, private cdr: ChangeDetectorRef) {
