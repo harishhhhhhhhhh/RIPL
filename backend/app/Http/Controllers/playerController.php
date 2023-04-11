@@ -22,24 +22,14 @@ class playerController extends Controller
     }
 
     public function getDataBasedOnTeam(Request $request){
-        //$team = $request->input('teamName');
-        // $teamid = DB::table('teamdetails')
-        //     ->where('teamName', $team)
-        //     ->pluck('id')
-        //     ->first();
-        // $playerids = DB::table('playerteam')
-        //      ->where('teamid', $teamid)
-        //      ->pluck('playerid')
-        //      ->toArray();
-        // $players = DB::table('playerdetails')
-        //    ->whereIn('id', $playerids)
-        //    ->select('name', 'skill')
-        //    ->get();
-        // return response()->json($players);
+
+
 
         $team=$request->input('teamName');
+
         $players =DB::table('playerdetails as pd')
-        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain')
+
+        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain','pt.playerid','pt.teamid')
         ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
         ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
         ->where('td.teamName', '=', $team)
@@ -90,6 +80,21 @@ class playerController extends Controller
         ->select('teamName')
         ->get();
         return response()->json($teams);
+      }
+
+
+      public function deleteFromPlayerTeam(Request $request){
+            $teamid  = $request->input('teamid');
+            $playerid = $request->input('playerid');
+
+            DB::table('playerTeam')
+            ->where('playerId',$playerid)
+            ->where('teamId',$teamid)
+            ->delete();
+
+            
+        return response()->json(["msg"=>"player with id $playerid deleted succesfully from playerteam table"]);
+            
       }
       
       

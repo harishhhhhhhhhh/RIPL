@@ -1,0 +1,79 @@
+.total{
+    display: flex;
+    height: 498px;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+}
+
+  .options{
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    border: 1px solid black ;
+    box-shadow: 11px 11px 23px 5px rgba(85,85,85,1);
+
+
+  }
+  .content{
+    flex-basis: 80%;
+    width: 100%;
+    margin: 10px;
+    border: 1px solid black;    
+    box-shadow: 11px 11px 23px 5px rgba(85,85,85,1);
+  }
+
+  .heading{
+    
+    height: 50px;
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black ;
+    
+  }
+
+  .deletebuttonfromoption{
+    margin: 10px;
+    margin-right: 5px;
+    border: 1px solid black;
+  }
+
+  .selector {
+    margin-top: 10px;
+    margin-left: 200px;
+    display: flex;
+    /* flex-direction: column; */
+    align-content: center;
+    justify-content: center;
+    width: 500px;
+    
+    border-radius: 10px;
+    /* border: 1px solid black; */
+
+
+  }
+
+  .pickButton {
+    width: 50%;
+  }
+
+  .tablee{
+    padding: 20px;
+   overflow :auto;
+   max-height: 400px;
+    
+  }
+
+  table1{
+  position: sticky;
+  top: 0;
+  
+  }
+
+
+  

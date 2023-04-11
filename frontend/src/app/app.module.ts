@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponentComponent } from './nav-bar-component/nav-bar-component.component';
 import { RegistLoginComponent } from './regist-login/regist-login.component';
 import { LoginComponent } from './regist-login/login/login.component';
+
+import { AdminControllsComponentComponent } from './admin-controlls-component/admin-controlls-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { LoginComponent } from './regist-login/login/login.component';
     TeamDetailsComponentComponent,
     NavBarComponentComponent,
     RegistLoginComponent,
-    LoginComponent
+    LoginComponent,
+    AdminControllsComponentComponent
+
   ],
   imports: [
     BrowserModule,

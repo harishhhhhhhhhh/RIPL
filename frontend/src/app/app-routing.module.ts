@@ -6,15 +6,15 @@ import { TeamDetailsComponentComponent } from './team-details-component/team-det
 import { RegistLoginComponent } from './regist-login/regist-login.component';
 import { LoginComponent } from './regist-login/login/login.component';
 
+import { AdminControllsComponentComponent } from './admin-controlls-component/admin-controlls-component.component';
+
 const routes: Routes = [
-  
-  {path:"",component:HomeComponentComponent},
-  {path:"login",component:LoginComponent},
-  // {path:"admin",component:HomeComponentComponent},
-  // {path:"home/playerselection",redirectTo:'playerselection'},
-  {path:"home",component:HomeComponentComponent},
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:"home", component:HomeComponentComponent},
+  {path:"home/:teamName", component:TeamDetailsComponentComponent,},
   {path:"playerselection",component:PlayerSelectionComponentComponent},
-  {path:":teamName", component:TeamDetailsComponentComponent},
+  {path:"admincontrolls",component:AdminControllsComponentComponent},
+ 
    
 ];
 

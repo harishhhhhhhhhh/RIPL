@@ -23,3 +23,4 @@ Route::get('/getDataBasedOnSkill',[playerController::class,'getDataBasedOnSkill'
 Route::put('/assignTeam',[playerController::class,'assignTeam']);
 Route::get('/getDataBasedOnTeam',[playerController::class,'getDataBasedOnTeam']);
 Route::get('/getTeams',[playerController::class,'getTeams']);
+Route::delete('/deleteFromPlayerTeam',[playerController::class,'deleteFromPlayerTeam']);
