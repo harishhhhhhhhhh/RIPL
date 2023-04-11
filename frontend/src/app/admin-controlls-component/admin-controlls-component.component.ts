@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,ChangeDetectorRef} from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -12,10 +12,16 @@ export class AdminControllsComponentComponent {
   playerDetails : any =[];
 
 
-  constructor(private service : ApiServiceService){}
+  constructor(private service : ApiServiceService,private cdr : ChangeDetectorRef){}
 
-  deleteCalled(){
-
+  deleteCalled(teamid : any,playerid : any){
+    console.log("deletecalle")
+    this.service.deletePlayerFromPlayerTeam(teamid,playerid).subscribe((res)=>{
+        if(res)
+        {
+          this.getData();
+        }
+    });
   }
 
   onTeamSelected( event :any){
@@ -25,11 +31,16 @@ export class AdminControllsComponentComponent {
       alert("please select a team to get details");
     }
     else{
-      this.service.getDataBasedOnTeam(this.selectedTeam).subscribe((res)=>{
-        console.log("ffrom delelte form team",res)
-        this.playerDetails = res;
-      })
+      this.getData();
+     
     }
+  }
+
+  getData(){
+    this.service.getDataBasedOnTeam(this.selectedTeam).subscribe((res)=>{
+      console.log("ffrom delelte form team",res)
+      this.playerDetails = res;
+    })
   }
 
 }

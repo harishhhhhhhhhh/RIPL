@@ -40,4 +40,9 @@ export class ApiServiceService {
   getPlayerTeam(): Observable<any>{
     return this.http.get(this.api+`/checkTeam`);
   }
+
+  deletePlayerFromPlayerTeam(teamid : any,playerid : any) : Observable<any>{
+    console.log("in servxce")
+    return this.http.delete(this.api+`/deleteFromPlayerTeam?playerid=${playerid}&teamid=${teamid}`);
+  }
 }

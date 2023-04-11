@@ -8,187 +8,240 @@
 <div class="grid-child-element">
 
     <div class="switchAccess">
-    <label class="switch">
-        <input #switchInput (click)="checkAdminStatus()" type="checkbox">
-        <span class="slider round"></span>
-      </label>
+        <label class="switch">
+            <input #switchInput (click)="checkAdminStatus()" type="checkbox">
+            <span class="slider round"></span>
+        </label>
     </div>
 
 
     <div *ngIf="adminAccess">
-    <div class="Teams">
-        <div class="TeamField">
-            <span><h5>Mighty Mavericks</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Mighty Mavericks')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Mighty Mavericks')" class="btn btn-outline-danger">Delete</button>
+        <div class="Teams">
+            <div class="TeamField">
+                <span>
+                    <h5>Jupiter Eagles</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Jupiter Eagles')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Jupiter Eagles')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Spartan Strikers</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Spartan Strikers')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Spartan Strikers')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Ceres Strikers</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Ceres Strikers')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Ceres Strikers')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Uranus Hurricans</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Uranus Hurricans')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Uranus Hurricans')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Uranus Hurricans</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Uranus Hurricans')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Uranus Hurricans')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Mars Thunders</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Mars Thunders')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Mars Thunders')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Mars Thunders</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Mars Thunders')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Mars Thunders')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Mercury Steelers</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Mercury Steelers')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Mercury Steelers')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Mercury Steelers</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Mercury Steelers')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Mercury Steelers')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Neptune Knights</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Neptune Knights')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Neptune Knights')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Neptune Knights</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Neptune Knights')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Neptune Knights')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Venus Warriors</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Venus Warriors')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Venus Warriors')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Venus Warriors</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Venus Warriors')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Venus Warriors')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Vesta Avengers</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Vesta Avengers')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Vesta Avengers')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Vesta Avengers</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Vesta Avengers')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Vesta Avengers')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Saturn Superstars</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Saturn Superstars')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Saturn Superstars')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Saturn Superstars</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Saturn Superstars')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Saturn Superstars')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Pluto Panthers</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Pluto Panthers')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Pluto Panthers')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Pluto Panthers</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Pluto Panthers')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Pluto Panthers')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Earth Heros</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Earth Heros')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Earth Heros')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Earth Heros</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Earth Heros')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Earth Heros')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
-        </div>
-        <div class="TeamField">
-            <span><h5>Eris Falcons</h5></span>
-            <div class="button-group">
-                <button type="button" (click)="addPlayerAdmin('Eris Falcons')" class="btn btn-outline-success">Add</button>
-                <button type="button" (click)="deletePlayerAdmin('Eris Falcons')" class="btn btn-outline-danger">Delete</button>
+            <div class="TeamField">
+                <span>
+                    <h5>Eris Falcons</h5>
+                </span>
+                <div class="button-group">
+                    <button type="button" (click)="addPlayerAdmin('Eris Falcons')"
+                        class="btn btn-outline-success">Add</button>
+                    <button type="button" (click)="deletePlayerAdmin('Eris Falcons')"
+                        class="btn btn-outline-danger">Delete</button>
+                </div>
             </div>
+
         </div>
-       
-    </div>
-       
-        
-          
+
+
+
     </div>
 
     <div *ngIf="!adminAccess" class="adminSelect">
-    <div class="selector">
-    
-        <div class="content-container ">
-            <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select A Team</button>
-        </div>
-    
-    </div>
-    <div *ngIf="(selectedTeamName)&&(displayBanner)">
-        <div class="team-detail-text">
-            <p>
-                <span>
-                    Team
-                </span>
-                <b>-</b>
-                {{team}}
-            </p>    
-            <p>
-                <span>
-                    Captain 
-                </span>
-                <b>-</b>
-                {{Captain}}
-            </p>
-            <p>
-                <span>
-                    Owners
-                </span>
-                <b>-</b>
-                {{Owners}}
-            </p>
-        </div>
-        <div *ngIf="TeamDetails.length==0" >
-            <div class="noplayers">No players assigned in this team</div>
-        </div>
-        <div class="tableContainer ">
+        <div class="selector">
 
-            <table *ngIf="(TeamDetails.length>=1)" class="table-success table1 table table-dark table-hover table-bordered mt-3 tablesize tablee">
-                <thead>
-                <tr>
-                    <!-- <th scope="col">#</th> -->
-                    <th scope="col">Name</th>
-                    <th scope="col">Skill</th>
-                    <!-- <th scope="col">Gender</th>
+            <div class="content-container ">
+                <button class=" selectbtn btn btn-primary" (click)="selectRandomOption()">Select A Team</button>
+                <button class=" selectbtn btn btn-primary" [disabled]="donebtn" (click)="done()">Done</button>
+            </div>
+
+        </div>
+        <div *ngIf="(selectedTeamName)">
+            <div class="team-detail-text">
+                <p>
+                    <span>
+                        Team
+                    </span>
+                    <b>-</b>
+                    {{team}}
+                </p>
+                <p>
+                    <span>
+                        Captain
+                    </span>
+                    <b>-</b>
+                    {{Captain}}
+                </p>
+                <p>
+                    <span>
+                        Owners
+                    </span>
+                    <b>-</b>
+                    {{Owners}}
+                </p>
+            </div>
+            <div *ngIf="TeamDetails.length==0">
+                <div class="noplayers">No players assigned in this team</div>
+            </div>
+            <div class="tableContainer ">
+
+                <table *ngIf="(TeamDetails.length>=1)"
+                    class="table-success table1 table table-dark table-hover table-bordered mt-3 tablesize tablee">
+                    <thead>
+                        <tr>
+                            <th scope="col">s</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Skill</th>
+                            <!-- <th scope="col">Gender</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th> -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let us of TeamDetails 
-                " class="table-success">
-                <!-- <th scope="row">{{us.id}}</th> -->
-                <th>{{us.name}}</th>
-                <td>{{us.skill}}</td>
-                <!-- <td>{{us.gender}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let us of TeamDetails let i=index 
+                " (click)="getteammembers(i)" class="table-success">
+                            <th scope="row">{{i}}</th>
+                            <th>{{us.name}}</th>
+                            <td>{{us.skill}}</td>
+                            <!-- <td>{{us.gender}}</td>
                 <td>{{us.email}}</td>
                     <td>{{us.team}}</td>
                     <td>{{us.contact}}</td> -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    </div>
-    <div class="overlay" *ngIf="pickTeamflag">
-        <div class="content-container ">
-            <div class="  winnerBox">
-                <div>The Lucky team Is </div>
-                &nbsp;
-                <div class="winnerTeam"> {{currentTeam}}</div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div>
-            </div>
-            <div class="winnerbuttons">
-                <button class="btn btn-primary  addPlayerToTheTeamButton" (click)="Continue()"
-                    [disabled]="addPlayerButtonDisabled">Take this Team
-                </button>
-                &nbsp;
-                <button class="btn btn-primary " (click)="Cancel()">Cancel the this Team</button>
+
+        </div>
+        <div class="overlay" *ngIf="pickTeamflag">
+            <div class="content-container ">
+                <div class="winnerBox">
+                    <div>The Lucky team Is </div>
+                    &nbsp;
+                    <div *ngIf="!displayteamWinnerflag" class="roundRobinNames">
+                        {{currentTeam}}
+                    </div>
+                    <div *ngIf="displayteamWinnerflag" class="winnerTeam"> {{this.team}}</div>
+                </div>
+                <div>
+                </div>
+                <div class="winnerbuttons">
+                    <button class="btn btn-primary  addPlayerToTheTeamButton" (click)="Continue()"
+                        [disabled]="addPlayerButtonDisabled">Take this Team
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-primary " (click)="Cancel()">Cancel the this Team</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

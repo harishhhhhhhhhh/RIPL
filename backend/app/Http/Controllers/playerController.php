@@ -16,12 +16,20 @@ class playerController extends Controller
             ->select('id','name', 'skill')
             ->whereNotIn('id', $ids)
             ->get();
+        $ids = DB::table('playerteam')
+            ->pluck('playerid')
+            ->toArray();
+        $players = DB::table('playerdetails')
+            ->select('id','name', 'skill')
+            ->whereNotIn('id', $ids)
+            ->get();
         return response()->json($players);
 
 
     }
 
     public function getDataBasedOnTeam(Request $request){
+       
         $team=$request->input('teamName');
 
         $players =DB::table('playerdetails as pd')
@@ -80,7 +88,19 @@ class playerController extends Controller
       }
 
 
-    //   public function 
+      public function deleteFromPlayerTeam(Request $request){
+            $teamid  = $request->input('teamid');
+            $playerid = $request->input('playerid');
+
+            DB::table('playerTeam')
+            ->where('playerId',$playerid)
+            ->where('teamId',$teamid)
+            ->delete();
+
+            
+        return response()->json(["msg"=>"player with id $playerid deleted succesfully from playerteam table"]);
+            
+      }
       
       
 }

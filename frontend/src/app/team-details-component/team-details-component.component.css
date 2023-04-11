@@ -1,43 +1,44 @@
-body{
-    background-image: url('/assets/img/foooterbg.png');
-    background-position: center;
+body {
+  background-image: url('/assets/img/foooterbg.png');
+  background-position: center;
 }
 
-.teamdetails{
-    height: 300px;
-    width: 100%;
-    background-color: rgba(3,25,69,255);
-    background-image: url('/assets/img/foooterbg.png');   
-    display: flex;
-      
-}
-.teamdetails img{
-    object-fit: contain;
-    object-position: center;
-    width: 100%;
-    height: 100%;
-    /* padding: 0 20px; */
+.teamdetails {
+  height: 300px;
+  width: 100%;
+  background-color: rgba(3, 25, 69, 255);
+  background-image: url('/assets/img/foooterbg.png');
+  display: flex;
+
 }
 
-.img-holder{
-    margin-left: -50px;
-    margin-bottom: 50px;
-    margin-top: 100px;
-    border-right: 2px solid white;
-    /* border: 1px solid black; */
-    /* border-radius: 10px; */
-    /* box-sizing: border-box; */
-    /* transition: transform 0.3s ease-in-out; */
-    /* border-color: #e5e5e5; */
-    height: 100px;
-    width: 300px;
-  }
+.teamdetails img {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  /* padding: 0 20px; */
+}
 
-.teamdetails .teamName{
-    margin-top: 100px;
-    color: white;
-    text-transform: uppercase;
-    font-family: 'Avenir Next', sans-serif;
+.img-holder {
+  margin-left: -50px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  border-right: 2px solid white;
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+  /* box-sizing: border-box; */
+  /* transition: transform 0.3s ease-in-out; */
+  /* border-color: #e5e5e5; */
+  height: 100px;
+  width: 300px;
+}
+
+.teamdetails .teamName {
+  margin-top: 100px;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Avenir Next', sans-serif;
   font-weight: bold;
   font-size: 25px;
   font-stretch: ultra-condensed;
@@ -46,96 +47,106 @@ body{
 
 
 .team-detail-text p {
-    width: 100%;
-    margin: 0;
-    padding: 11px 15px 8px;
-    display: flex;
-    font-size: 15px;
-    border-bottom: 2px solid #031945;
-    color: #fff;
-    font-stretch: condensed;
-    font-family: 'Avenir Next', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1px;
+  width: 100%;
+  margin: 0;
+  padding: 11px 15px 8px;
+  display: flex;
+  font-size: 15px;
+  border-bottom: 2px solid #031945;
+  color: #fff;
+  font-stretch: condensed;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
 
 }
+
 .team-detail-text p span:first-child {
-    color: #ffc52f;
+  color: #ffc52f;
 }
 
 .team-detail-text {
-    margin-top: 80px;
-    margin-left: 80px;
-    width: 400px;
-    height: 100px;
-  
-    display: flex;
-    flex-wrap: wrap;
-    background: #112a5c;
-    border-radius: 10px;
-    overflow: hidden;
-    text-transform: uppercase;
-  
+  margin-top: 80px;
+  margin-left: 80px;
+  width: 400px;
+  height: 100px;
+
+  display: flex;
+  flex-wrap: wrap;
+  background: #112a5c;
+  border-radius: 10px;
+  overflow: hidden;
+  text-transform: uppercase;
+
   font-size: 10px;
-  
+
 }
 
 .container {
-    padding-top: 20px;
-    height: auto;
-    min-height: 200px;
-    
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+  padding-top: 20px;
+  height: auto;
+  min-height: 200px;
 
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 
-  .container img{
-    grid-row: span 2;
-    height: 150px;
-    width: 248px; 
-    border-radius: 10px;
-    background-position: center;
-    object-fit: contain;
-    
-    
-   }
-  .data{
-    border-top: 1px solid black;
-    text-align: center;
+}
 
-  }
-  .data .name{
-    font-weight: bold;
-    color:rgba(3,25,69,255) ;
-    text-transform: uppercase;
-  }
-  
+.container img {
+  grid-row: span 2;
+  height: 150px;
+  width: 248px;
+  border-radius: 10px;
+  background-position: center;
+  object-fit: contain;
+
+
+}
+
+.data {
+  border-top: 1px solid black;
+  text-align: center;
+  overflow-x: auto; /* enable horizontal scrolling */
+  overflow-y: hidden; /* hide vertical scrolling */
+  white-space: nowrap; /* prevent text from wrapping */
+  -ms-overflow-style: none; /* hide scrollbar in IE and Edge */
+  scrollbar-width: none;
+}
+
+.data::-webkit-scrollbar {
+  display: none;
+}
+
+.data .name {
+  font-weight: bold;
+  /* height: 100px; */
+  color: rgba(3, 25, 69, 255);
+  text-transform: uppercase;
+
+}
 
 .player-holder {
-display: grid;
-grid-template-rows: repeat(3, 1fr);
-    border: 1px solid black;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border-color: #4d3b3b;
-    height: 200px;
-    transition: transform 0.3s ease-in-out;
-    width: 250px;
-  }
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border-color: #4d3b3b;
+  height: 200px;
+  transition: transform 0.3s ease-in-out;
+  width: 250px;
+}
 
-  .skillname{
-    color: rgba(3,25,69,255);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: x-large;
-    font-family: 'Avenir Next', sans-serif;
-    margin-left: 85px;
-    margin-top: 80PX;
-  }
-
-
+.skillname {
+  color: rgba(3, 25, 69, 255);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: x-large;
+  font-family: 'Avenir Next', sans-serif;
+  margin-left: 85px;
+  margin-top: 80PX;
+}
 
 
 
@@ -145,30 +156,30 @@ grid-template-rows: repeat(3, 1fr);
 
 
 
-  /* ..................................FOOTER ........................................*/
-  footer{
-    background-image: url('/assets/img/foooterbg.png');
-    background-color: black;
-    margin-top: 80px;
-
-  }
-
-  .foo{
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-  }
-
-  .fotext{
-    color: white;
-    font-size: small;
-  }
-  .foo img{
-      height: 100px;    
-  }
-  
 
 
+/* ..................................FOOTER ........................................*/
+footer {
+  background-image: url('/assets/img/foooterbg.png');
+  background-color: black;
+  margin-top: 80px;
+
+}
+
+.foo {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.fotext {
+  color: white;
+  font-size: small;
+}
+
+.foo img {
+  height: 100px;
+}
