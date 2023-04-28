@@ -39,7 +39,7 @@ export class AdminControllsComponentComponent {
   getData(){
     this.service.getDataBasedOnTeam(this.selectedTeam).subscribe((res)=>{
       console.log("ffrom delelte form team",res)
-      this.playerDetails = res;
+      this.playerDetails = res.teamData[0].players;
     })
   }
 

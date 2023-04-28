@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\playerDetails;
+use App\Models\teamDetails;
+use App\Models\playerTeam;
 
 class playerController extends Controller
 {
@@ -26,15 +28,18 @@ class playerController extends Controller
 
 
         $team=$request->input('teamName');
+        $teamData = teamDetails::where('teamName',$team)->with('players')->get();
+        // $ran = $teamOwners->players;
+        // $players =DB::table('playerdetails as pd')
 
-        $players =DB::table('playerdetails as pd')
-
-        ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain','pt.playerid','pt.teamid')
-        ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
-        ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
-        ->where('td.teamName', '=', $team)
-        ->get();
-        return response()->json($players);
+        // ->select('pd.name','pd.skill','td.teamOwners','td.teamCaptain','pt.playerid','pt.teamid')
+        // ->join('playerteam as pt', 'pd.id', '=', 'pt.playerid')
+        // ->join('teamdetails as td', 'pt.teamid', '=', 'td.id')
+        // ->where('td.teamName', '=', $team)
+        // ->get();
+        return response()->json([
+            "teamData"=> $teamData,
+        ]);
     }
 
     public function getDataBasedOnSkill(Request $request) {

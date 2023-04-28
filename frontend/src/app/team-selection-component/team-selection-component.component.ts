@@ -131,9 +131,9 @@ export class TeamSelectionComponentComponent {
     this.service.getDataBasedOnTeam(teamName).subscribe((res: any) => {
       if (res.length == 0) this.arePlayersAvailable = true;
       else this.arePlayersAvailable = false;
-      this.TeamDetails = res;
-      this.Captain = res[0].teamCaptain
-      this.Owners = res[0].teamOwners
+      this.TeamDetails = res.teamData[0].players;
+      this.Captain = res.teamData[0].teamCaptain;
+      this.Owners = res.teamData[0].teamOwners;
       console.log(res);
     })
   }
